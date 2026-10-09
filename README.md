@@ -38,11 +38,11 @@ Users should be able to:
 
 Larger Screens
 
-![](./assets/images/lrgscreens.png)
+![](./assets/images/scrnshotlg.png)
 
 Mobile Screens
 
-![](./assets/images/mobilescreens.png)
+![](./assets/images/scrnshotsml.png)
 
 
 ### Links
