@@ -17,7 +17,6 @@ This is a solution to the [Multi-step form challenge on Frontend Mentor](https:/
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -37,20 +36,19 @@ Users should be able to:
 
 ### Screenshot
 
-No screenshot file is included yet.
+Larger Screens
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+![](./assets/images/lrgscreens.png)
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+Mobile Screens
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+![](./assets/images/mobilescreens.png)
 
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Github Link](https://github.com/issagoodlifeInc/multi-step-form.git)
+- Live Site URL: [Netlify Deploy](https://your-live-site-url.com)
 
 ## My process
 
@@ -63,33 +61,45 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Making Data your friend and a  bit of form validation;
 
-To see how you can add code snippets, see below:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+  const steps = ["Your info", "Select plan", "Add-ons", "Summary"];
+const plans = [
+  { name: "Arcade", monthly: 9, yearly: 90, icon: "arcade" },
+  { name: "Advanced", monthly: 12, yearly: 120, icon: "advanced" },
+  { name: "Pro", monthly: 15, yearly: 150, icon: "pro" },
+];
+const addOns = [
+  { name: "Online service", description: "Access to multiplayer games", monthly: 1, yearly: 10 },
+  { name: "Larger storage", description: "Extra 1TB of cloud save", monthly: 2, yearly: 20 },
+  { name: "Customizable Profile", description: "Custom theme on your profile", monthly: 2, yearly: 20 },
+];
+
+function formatPrice(amount, yearly) {
+  return `$${amount}/${yearly ? "yr" : "mo"}`;
 }
+
+function validateInfo(info) {
+  const errors = {};
+  if (!info.name.trim()) errors.name = "This field is required";
+  if (!info.email.trim()) errors.email = "This field is required";
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(info.email.trim())) {
+    errors.email = "Please enter a valid email address";
+  }
+  const phoneDigits = info.phone.replace(/\D/g, "");
+  if (!info.phone.trim()) errors.phone = "This field is required";
+  else if (phoneDigits.length < 7 || phoneDigits.length > 15) {
+    errors.phone = "Please enter a valid phone number";
+  }
+  return errors;
+}
+
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
