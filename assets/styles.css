@@ -188,8 +188,8 @@ label:has(input:focus-visible) {
   margin-bottom: 0.5rem;
 }
 
-.field label,
-.field-error {
+.field-error,
+.field label {
   font-size: 0.8125rem;
   font-weight: 500;
 }
@@ -437,12 +437,12 @@ label:has(input:focus-visible) {
   opacity: 0;
 }
 
-.extra-card.is-selected .custom-checkbox {
+:where(.extra-card.is-selected) .custom-checkbox {
   border-color: var(--purple-600);
   background: var(--purple-600);
 }
 
-.extra-card.is-selected .custom-checkbox::after {
+:where(.extra-card.is-selected) .custom-checkbox::after {
   opacity: 1;
 }
 
@@ -596,11 +596,11 @@ label:has(input:focus-visible) {
 
 @media (max-width: 47.5em) {
   .page-shell {
-    display: block;
-    min-height: 100svh;
-    padding: 0 1rem 6rem;
-    background: var(--blue-100);
-  }
+  display: block;
+  min-height: 100svh;
+  padding: 0 1rem 1rem;
+  background: var(--blue-100);
+}
 
   .mobile-step-list {
     position: absolute;
@@ -722,22 +722,12 @@ label:has(input:focus-visible) {
     padding: 1.25rem 1rem;
   }
 
-  .form-actions {
-    position: fixed;
-    z-index: 2;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin-top: 0;
-    padding: 1rem;
-    background: var(--white);
-  }
-
-  .form-actions-first {
-    position: static;
-    margin: 2rem -1.5rem -1.5rem;
-    padding: 1rem 1.5rem;
-  }
+.form-actions {
+  position: static;
+  margin: 2rem -1.5rem -1.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--white);
+}
 
   .thank-you {
     min-height: 25rem;
@@ -770,11 +760,10 @@ label:has(input:focus-visible) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+  .button,
+  .plan-card,
+  .extra-card,
+  .switch span {
+    transition: none;
   }
 }
