@@ -32,19 +32,22 @@
   --purple-200: hsl(229 24% 87%);
   --blue-100: hsl(218 100% 97%);
   --blue-50: hsl(231 100% 99%);
+  --content-width: 28.125rem;
+  --card-width: 58.75rem;
+  --page-gutter: 1.5rem;
   --white: hsl(0 100% 100%);
 }
 
 * {
   box-sizing: border-box;
 }
-
 body {
+  padding: var(--page-gutter);
   min-width: 20rem;
   margin: 0;
   background: var(--blue-100);
   color: var(--blue-950);
-  font-family: "Ubuntu", sans-serif;
+  width: min(var(--card-width), 100%);
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
 }
@@ -52,10 +55,8 @@ body {
 button,
 input {
   font: inherit;
-}
-
-button {
   cursor: pointer;
+  width: min(var(--content-width), calc(100% - 3rem));
 }
 
 button:focus-visible,
@@ -156,7 +157,7 @@ label:has(input:focus-visible) {
 }
 
 .step-heading {
-  margin-bottom: 2.1875rem;
+  margin-block-end: 2.1875rem;
 }
 
 .step-heading h1,
